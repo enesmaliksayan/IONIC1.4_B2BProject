@@ -1,0 +1,59 @@
+<!--
+  This template loads for the 'cart' state (app.js)
+  cart is a $scope variable in CartCtrl (controllers.js)
+-->
+<ion-view title="HESAP">
+
+  <!-- Overwrite main nav bar -->
+  <ion-nav-bar class="bar-dark" align-title="center">
+
+    <ion-nav-buttons side="right">
+
+      <button class="button button-icon button-clear ion-ios-cart-outline" ui-sref="cart">
+      </button>
+
+    </ion-nav-buttons>
+    <!-- Back button -->
+    <ion-nav-back-button>
+      Geri
+    </ion-nav-back-button>
+
+    <!-- Burger button -->
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+      </button>
+    </ion-nav-buttons>
+
+
+
+  </ion-nav-bar>
+
+  <ion-content class="stable-bg">
+
+
+    <div class="card padding dark-bg">
+      <h4 class="text-center light">Müşteri Ad Soyad</h4>
+    </div>
+    <div class="card dark-bg">
+      <div class="item item-text-wrap dark-bg">
+        <h2 class="text-center light"><b class="energized">Firma Adı : </b>   VİVA ÇANTA</h2>
+      </div>
+      <div class="item item-text-wrap dark-bg">
+        <h2 class="text-center light"><b class="energized">Telefon numarası : </b>   (0212) 637 32 33</h2>
+      </div>
+      <div class="item item-text-wrap dark-bg">
+        <button class="button button-full energized-bg" ui-sref="orders">
+          <h2 class="dark"><b>Siparişlerim</b></h2>
+        </button>
+      </div>
+    </div>
+
+
+
+  </ion-content>
+  <div class="bar bar-footer bar-energized dark">
+    <div class="title"><h4 style="opacity: 0.6"><b><a href="http://www.acarsoft.net/">ACARSOFT ®</a></b></h4></div>
+
+  </div>
+
+</ion-view>

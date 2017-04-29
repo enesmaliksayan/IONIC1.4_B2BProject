@@ -1,0 +1,325 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// overwrite default color
+$stable:                          #E8E8E8 !default;
+$calm:                            #67B1D6 !default;
+$assertive:                       #F6846A !default;
+$gray:                            #38464F;
+$darkGray:                        #2A353B;
+$borderColor:                     #CAC9CE;
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "../www/lib/ionic/scss/ionic";
+
+a {
+  text-decoration: none;
+}
+// common class
+.pull-right {
+  float: right;
+}
+
+.flex-wrap {
+  flex-wrap: wrap-reverse;
+
+  .col-50 {
+    padding: 5px;
+  }
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.padding-5 {
+  padding: 5px;
+}
+
+.label {
+  border-radius: 5px;
+  padding: 1px 5px;
+}
+
+// header
+.button .header-badge {
+  position: absolute;
+  top: 3px;
+  right: 0;
+  padding: 0 3px;
+  border-radius: 50%;
+  color: $calm;
+  font-size: 0.6em;
+  line-height: 1em;
+  background: $light;
+}
+
+// login page
+.social-button {
+  color: #FFF;
+  i {
+    font-size: 1.8em;
+    vertical-align: middle;
+    margin-left: 0.5em;
+  }
+
+  span {
+    vertical-align: middle;
+  }
+}
+
+.facebook-login {
+  background: #3B5999;
+}
+
+.twitter-login {
+  background: #00ACEE;
+}
+
+// more color
+
+.gray-bg {
+  background-color: $gray;
+  color: $light;
+}
+
+.dark-gray-bg {
+  color: $light;
+  background-color: $darkGray;
+}
+
+// left menu
+.left-menu {
+  .item {
+    border: none;
+
+    &.active {
+      color: $assertive;
+      background-color: $stable;
+    }
+  }
+
+  .item-icon-left {
+    .icon {
+      font-size: 26px;
+    }
+  }
+
+  .line-divider {
+    margin: 10px 6%;
+    width: 88%;
+    border-top: 2px solid $borderColor;
+  }
+
+  .item-sub {
+    padding: 5px 0 5px 53px;
+    transition: all 150ms linear;
+    color: $dark;
+    background-color: $stable;
+  }
+}
+
+// homepage
+.card {
+  &.item-input-inset {
+    .item-input-wrapper {
+      background: transparent;
+
+      input {
+        padding-left: 8px;
+        width: 94%;
+        height: 28px;
+        background: transparent;
+      }
+    }
+  }
+}
+
+// filters
+.color-filter {
+  .item-color-option {
+    margin: 4px;
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+    border-radius: 3px;
+  }
+}
+
+.size-filter {
+  .item-size-option {
+    margin: 4px;
+    width: 66px;
+    display: inline-block;
+    line-height: 50px;
+    text-align: center;
+    background: #DAD9DE;
+    font-weight: bold;
+  }
+}
+
+// product style
+.product-title {
+  display: block;
+  font-size: 1.2em;
+  color: #000;
+}
+.old-price {
+  color: #8f8f8f;
+  text-decoration: line-through;
+  font-size: 0.8em;
+}
+.slider-pager .slider-pager-page {
+  color: $light;
+}
+
+.item-option {
+  height: 20px;
+  width: 20px;
+  margin: 0 5px;
+  display: inline-block;
+  font-size: 1.5em;
+}
+
+.item-size {
+  height: auto;
+  width: 40px;
+  text-align: center;
+  font-size: 1em;
+  background: $borderColor;
+}
+
+.product-detail {
+  .price {
+    width: 100%;
+    display: block;
+    border-radius: 3px;
+    line-height: 40px;
+    background-color: $borderColor;
+    color: $light;
+  }
+  .old-price {
+    font-size: 1em;
+  }
+}
+
+.bar-subheader {
+  .row {
+    padding: 0;
+
+    .col {
+      padding-top: 0;
+      padding-bottom: 0;
+
+      .button {
+        margin: 0;
+
+        &.button-positive {
+          background-color: #4779CE;
+        }
+      }
+    }
+  }
+}
+
+// category page
+.bar-subheader {
+  .icon-small {
+    font-size: 1.5em;
+  }
+}
+
+.filter-block {
+  margin: 5px;
+  padding: 5px;
+  width: 60px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  background: #A6A6AE;
+  color: $light;
+  text-transform: uppercase;
+
+  i {
+    top: -10px;
+    right: -6px;
+    position: absolute;
+    color: $dark;
+    font-size: 1.2em;
+
+    &:before {
+      background: $light;
+      border-radius: 50%;
+    }
+  }
+}
+
+// cart page
+.cart {
+  .item {
+    &.item-complex {
+      .item-content {
+        padding-right: 16px;
+      }
+    }
+  }
+}
+
+.qty-button {
+  width: 32px;
+  margin-top: 15px;
+  float: right;
+
+  .qty-value {
+    padding: 3px 5px 3px 0;
+    float: left;
+    line-height: 32px;
+  }
+
+  .qty-up,
+  .qty-down
+  {
+    float: left;
+    font-size: 0.8em;
+  }
+}
+
+// checkout page
+.item-input-margin {
+  margin: 5px;
+  background: #F8F8F8;
+
+  &.col {
+    padding-left: 16px;
+  }
+}
+
+.item.card {
+  margin: 10px;
+}
+

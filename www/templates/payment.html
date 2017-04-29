@@ -1,0 +1,23 @@
+<ion-view view-title="Ödeme">
+  <ion-content>
+
+    <form name="PaymentForm" novalidate>
+      <div class="card" >
+        <div class="item item-divider dark-bg energized">
+          Ödeme Yöntemi Seçimi
+        </div>
+
+          <ion-radio radio-class="radio-assertive" ng-repeat="item in thirdResponseBody.checkoutPaymentMethodModel.paymentMethods"
+                     ng-model="paymentRequestBody.selectedPaymentMethod" ng-value="item.paymentMethodSystemName">
+            <h3> <img ng-src="{{item.logoUrl}}">{{ item.name }}</h3>
+          </ion-radio>
+      </div>
+      <div class="padding">
+        <button class="button button-block button-dark" style="color: #ffc900" ng-click="PaymentButton()">
+          Devam
+        </button>
+      </div>
+    </form>
+
+  </ion-content>
+</ion-view>

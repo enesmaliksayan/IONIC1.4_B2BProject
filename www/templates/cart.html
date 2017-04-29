@@ -1,0 +1,64 @@
+<!--
+  This template loads for the 'cart' state (app.js)
+  cart is a $scope variable in CartCtrl (controllers.js)
+-->
+
+<ion-view view-title="SEPET" ng-model="SepetModel" ng-init="initi()">
+
+  <ion-content class="cart stable-bg">
+
+
+    <ion-refresher
+      pulling-text="Yenilemek için çekin.."
+      on-refresh="refresh()">
+    </ion-refresher>
+
+    <ion-list>
+      <ion-item class="item-thumbnail-left card" ng-repeat="item in cartItems.items">
+        <img src="{{ item.picture.imageUrl }}" alt=""/>
+        <div class="row">
+          <div class="col-66">
+            <h2>{{ item.productName }}</h2>
+            <i class="ion-stop {{ item.color }}" ng-if="item.color !== null" ></i>
+            <span class="dark">{{ item.size }}</span>
+            <h2 class="dark">{{ item.unitPrice }}</h2>
+          </div>
+          <div class="col-25">
+            <div class="qty-button">
+              <span class="padding">{{item.quantity}} ADET</span>
+            </div>
+          </div>
+          </div>
+
+        <ion-option-button class="dark-bg light" ng-click="Cikar(item.productId)">
+          <i class="icon ion-trash-a padding"></i>
+        </ion-option-button>
+        <ion-option-button class="dark-bg light" ng-click="AdetDegistir(item.productId)">
+          <span class="padding">ADET</span>
+        </ion-option-button>
+      </ion-item>
+
+    </ion-list>
+
+
+
+    <!-- Calculate price -->
+    <div class="card">
+      <div class="item">
+        <b>Toplam Fiyat</b>
+        <div class="pull-right">{{ order.subTotal }}</div>
+      </div>
+</div>
+
+    <!-- Checkout button -->
+    <div class="padding row">
+      <button class="button button-raised col col-50 dark-bg light" style="margin-right: 3px;" ng-click="Guncelle()">
+        Sepeti Güncelle
+      </button>
+      <button class="button button-raised col col-50 dark-bg energized" ng-click="SiparisVer()">
+        Sipariş Ver
+      </button>
+    </div>
+
+  </ion-content>
+</ion-view>

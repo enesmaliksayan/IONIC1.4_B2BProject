@@ -1,0 +1,52 @@
+<ion-view view-title="ANASAYFA" no-drag-right hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon energized" menu-toggle="left">
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="stable-bg">
+    <ion-slide-box on-slide-changed="Change()" auto-play="true">
+      <ion-slide class="slide"  ng-repeat="slide in slides">
+          <div class="slide-box box">
+            <img class="full-image" ng-src="{{slide.image}}"onError="this.onerror=null;this.src='http://www.2elesya.info/beyazesya/urun_resim_yok.png';" />
+          </div>
+      </ion-slide>
+    </ion-slide-box>
+
+    <div class="row text-center" >
+
+
+      <div class="card col home dark-bg energized" style="margin: 4px" ui-sref="products" >
+        <a class="item item-text-wrap dark-bg">
+          <h1><i class="icon ion-bag energized" ></i></h1>
+          <h3 class="dark-bg energized">ÜRÜNLER</h3>
+        </a>
+      </div>
+
+      <div class="card col col-bottom home dark-bg energized"  style="margin: 4px" ui-sref="katalog">
+        <a class="item item-text-wrap dark-bg">
+          <h1><strong><i class="icon ion-ios-book energized"></i></strong></h1>
+          <h3 class="dark-bg energized">KATALOG</h3>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="row text-center">
+
+      <div class="card col home dark-bg energized"  style="margin: 4px" ui-sref="account">
+        <a class="item item-text-wrap dark-bg">
+          <h1><i class="icon ion-person energized"></i></h1>
+          <h3 class="dark-bg energized">HESAP</h3>
+        </a>
+      </div>
+
+      <div class="card col home dark-bg energized"  style="margin: 4px" ui-sref="latests">
+        <a class="item item-text-wrap dark-bg">
+          <h1><i class="icon ion-archive energized" ></i></h1>
+          <h3 class="dark-bg energized">BİLDİRİMLER</h3>
+        </a>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,62 @@
+<ion-view view-title="Login" hide-nav-bar="true" class="stable-bg" hide-back-button="false">
+  <ion-content>
+    <!-- Logo -->
+    <div class="padding text-center">
+      <br><br>
+      <h4 class="dark">
+      VİVA ÇANTA KAYIT FORMU
+      </h1>
+      </div>
+
+    <!-- Signup form -->
+
+    <form name="signUp" novalidate>
+      <div class="list list-inset card">
+
+        <label class="item item-input">
+          <input type="text" placeholder="Ad">
+        </label>
+
+        <label class="item item-input">
+          <input type="text" placeholder="Soyad">
+        </label>
+
+        <label class="item item-input">
+          <input type="email" placeholder="Email">
+        </label>
+
+        <label class="item item-input">
+          <input type="text" placeholder="Firma Adı">
+        </label>
+
+        <label class="item item-input">
+          <input type="password" placeholder="Şifre">
+        </label>
+
+        <label class="item item-input">
+          <input type="password" placeholder="Şifre Tekrar">
+        </label>
+
+        <label class="item item-input">
+          <input type="text" placeholder="Telefon">
+        </label>
+
+        <label class="item item-input">
+          <textarea name="Adres" rows="7" placeholder="Adres"></textarea>
+        </label>
+
+      </div>
+
+      <div class="padding">
+        <button class="button button-block button-dark" ui-sref="login" ng-click="kayitol()" style="color:#ffc900">
+          Kayıt Ol
+        </button>
+      </div>
+    </form>
+    <!-- Other links -->
+    <div class="padding row">
+      <button class="button button-block button-positive" ui-sref="login">
+        Giriş Yap
+      </button>
+  </ion-content>
+</ion-view>

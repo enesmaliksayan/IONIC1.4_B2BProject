@@ -1,0 +1,19 @@
+<ion-view view-title="KATALOG" ng-model="KatalogModel">
+
+  <ion-content class="stable-bg">
+
+    <div ng-repeat="category in categories" class="stable-bg">
+      <div class="card" ng-click="KatalogDetayaGit(category)">
+        <div class="item item-dark" style="text-align: center">
+          <h2 class="energized">{{category.name}}</h2>
+        </div>
+
+        <div class="item item-image">
+          <img src="https://www.shopgiyim.com/productimages/MCS-V0237-ABS-A.MAVi-uclu-Valiz-Seti&#45;&#45;.jpg">
+        </div>
+      </div>
+    </div>
+
+
+  </ion-content>
+</ion-view>

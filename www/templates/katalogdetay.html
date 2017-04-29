@@ -1,0 +1,118 @@
+<ion-view view-title="{{KatalogDetayVeriler.name}}">
+  <ion-nav-back-button>
+    Geri
+  </ion-nav-back-button>
+
+  <ion-content class="stable-bg">
+    <div class="row" ng-repeat="image in getItem" ng-if="$index % 4 === 0">
+      <div class="col col-25" ng-if="$index < getItem.length">
+        <img  ng-click="openModal($index)" ng-src="{{getItem[$index].defaultPictureModel.imageUrl}}" width="100%" style="background: black" />
+      </div>
+      <div class="col col-25" ng-if="$index + 1 < getItem.length">
+        <img ng-click="openModal($index +1)" ng-src="{{getItem[$index + 1].defaultPictureModel.imageUrl}}" width="100%" />
+      </div>
+      <div class="col col-25" ng-if="$index + 2 < getItem.length">
+        <img ng-click="openModal($index +2)" ng-src="{{getItem[$index + 2].defaultPictureModel.imageUrl}}" width="100%" />
+      </div>
+      <div class="col col-25" ng-if="$index + 3 < getItem.length">
+        <img ng-click="openModal($index +3)" ng-src="{{getItem[$index + 3].defaultPictureModel.imageUrl}}" width="100%" />
+      </div>
+    </div>
+
+    <!--<script id="image-modal.html" type="text/ng-template">
+      <div class="modal image-modal row" style="background-color: rgba(0,0,0,0.2);width:90%;height:90%;top: 10%; left: 5%; right: 15%; bottom: 10%">
+
+        <ion-slide-box on-slide-changed="slideChanged(index)" show-pager="0">
+          <ion-slide ng-repeat="image in getItem" style="opacity: 1">
+            <ion-header-bar class="bar bar-header bar-dark">
+              <h1 class="title energized">{{image.name}}</h1>
+              <div class="button button-clear" ng-click="closeModal()"><span class="icon ion-close"></span></div>
+            </ion-header-bar>
+            <ion-scroll zooming="true" direction="xy" min-zoom="1"  >
+              <img style="width: 100%;height: 100%;bottom: 10%;top: 10%;left: 10%;right: 10%"  ng-src="{{image.defaultPictureModel.fullSizeImageUrl}}" onError="this.onerror=null;this.src='http://www.2elesya.info/beyazesya/urun_resim_yok.png';" />
+            </ion-scroll>
+            <ion-footer-bar class="bar bar-footer dark-bg">
+              <div class="button-bar" style="margin-inside: 2%;background-color: rgba(0,0,0,0.7)">
+                <button class="button button-stable energized" style="padding: 5px"  ng-click="DetayaGit(image.id)">Detaya Git</button>
+                <button class="button button-light dark" style="padding: 5px" ng-click="TabloAc(image.id)">Sepete Ekle</button>
+              </div>
+            </ion-footer-bar>
+          </ion-slide>
+        </ion-slide-box>
+      </div>
+    </script>-->
+
+
+    <script id="image-modal.html" type="text/ng-template">
+      <ion-modal-view style="background-color: rgba(0,0,0,0.7);width: 100%;top:0px !important;bottom: 0 !important;left: 0 !important;;right: 0 !important;">
+        <div class="row" style="width: 100%;height: 100%" ng-click="closeModal()">
+          <div class="col-center" style="width: 100%;height: auto;right:50%;left: 50%">
+            <ion-slide-box on-slide-changed="slideChanged()" show-pager="0">
+              <ion-slide ng-repeat="image in getItem" style="width: 100%;height: auto">
+                <ion-header-bar class="bar bar-header bar-dark">
+                  <h1 class="title energized">{{image.name}}</h1>
+                  <div class="button button-clear" ng-click="closeModal()"><span class="icon ion-close"></span></div>
+                  </ion-header-bar>
+                <ion-scroll zooming="true" direction="xy" min-zoom="1">
+                  <img ng-src="{{image.defaultPictureModel.fullSizeImageUrl}}" style="width: 100%;height: auto;right: 15%">
+
+                </ion-scroll>
+                <ion-footer-bar class="bar bar-footer dark-bg">
+                  <div class="button-bar" style="margin-inside: 2%;background-color: rgba(0,0,0,0.7)">
+                    <button class="button button-stable energized" style="padding: 5px"  ng-click="DetayaGit(image.id)">Detaya Git</button>
+                    <button class="button button-light dark" style="padding: 5px" ng-click="TabloAc(image.id)">Sepete Ekle</button>
+                  </div>
+                </ion-footer-bar>
+              </ion-slide>
+            </ion-slide-box>
+          </div>
+        </div>
+      </ion-modal-view>
+    </script>
+
+
+
+
+    <script id="RenkBedenModal.html" type="text/ng-template">
+      <div class="modal">
+        <ion-header-bar class="bar bar-header bar-dark">
+          <h1 class="title energized">RENK BEDEN TABLOSU</h1>
+          <div class="button button-clear" ng-click="TabloKapat()"><span class="icon ion-close"></span></div>
+        </ion-header-bar>
+        <ion-content has-header="true" has-subheader="false" scroll="true">
+          <table class="table table-bordered">
+            <tbody >
+
+            <tr>
+              <th width="10%">#</th>
+              <th width="20%">RENK</th>
+              <th width="40%">ENVANTER</th>
+              <th width="50%">ADET</th>
+              <th width="50%">İŞLEM</th>
+            </tr>
+
+            <!-- if you want to test bindonce, just replace any ng-* attribute
+                on this table except ng-repeat with the prefix bo-* eg. ng-bind with bo-bind
+                also, add the attribute bindonce to the repeater:
+                <tr bindonce ng-repeat="person in Persons" bo-class="{'male':person.gender=='M','female':person.gender=='F'}">
+                or simply open this plnkr http://plnkr.co/edit/0DGOrk?p=preview
+            -->
+            <tr ng-repeat="item in TabloIcerik">
+              <td width="10%" style="text-align: center" ng-bind="item.id"></td>
+              <td width="20%" style="text-align: center"><button class="button-small disabled" style="background-color: {{item.renk}}"></button> </td>
+              <td width="50%" style="text-align: center" ng-bind="item.envanter"></td>
+              <td width="50%" style="text-align: right"><input type="number" style="width: 50%" placeholder="Adet Girin"></td>
+              <td width="50%" style="text-align: center"><button class="button button-small dark-bg energized">SEPETE EKLE</button></td>
+
+            </tr>
+
+            </tbody>
+          </table>
+        </ion-content>
+      </div>
+    </script>
+
+
+  </ion-content>
+</ion-view>
+ƒ

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <!-- compiled css output -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/user.js"></script>
+
+    <script src="lib/ionic-filter-bar/dist/ionic.filter.bar.js"></script>
+    <script src="lib/ion-gallery/dist/ion-gallery.js"></script>
+    <script src="lib/ionic-scroll-sista/dist/ionic.scroll.sista.js"></script>
+    <script src="lib/ion-affix/ion-affix.js"></script>
+
+  </head>
+  <body ng-app="starter">
+
+  <ion-side-menus>
+
+    <!-- Center content -->
+    <ion-side-menu-content>
+      <ion-nav-bar class="bar-dark" align-title="center">
+        <!-- Back button -->
+
+        <ion-nav-back-button>
+          Geri
+        </ion-nav-back-button>
+
+        <!-- Burger button -->
+        <ion-nav-buttons side="left">
+          <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+          </button>
+        </ion-nav-buttons>
+
+        <!-- Cart button -->
+        <ion-nav-buttons side="right">
+
+          <button class="button button-icon button-clear ion-ios-cart-outline" ui-sref="cart">
+          </button>
+
+        </ion-nav-buttons>
+      </ion-nav-bar>
+
+      <!-- Main view content -->
+      <ion-nav-view animation="slide-left-right"></ion-nav-view>
+    </ion-side-menu-content>
+
+    <!-- Left menu -->
+
+    <ion-side-menu side="left" class="left-menu dark-bg">
+      <ion-content>
+          <div class="dark-bg padding">
+            <h4 class="padding-left energized" style="text-align: center;">
+            VİVA ÇANTA
+            </h4>
+
+          </div>
+
+        <!-- Menu -->
+        <!--
+          categories is a scope variable in MenuCtrl (controllers.js)
+          MenuCtrl get categories from Categories Service
+        -->
+        <div class="list dark-bg" ng-controller="MenuCtrl">
+          <div class="item item-icon-left dark-bg energized" ui-sref="home" menu-close="">
+            <i class="icon ion-ios-home-outline"></i>
+            ANASAYFA
+          </div>
+
+
+          <div class="item item-icon-left item-icon-right dark-bg energized" ui-sref="products" menu-close="">
+            <i class="icon ion-bag"></i>
+            <span class="text-uppercase">
+               TÜM ÜRÜNLER
+             </span>
+          </div>
+
+          <div class="item item-icon-left item-icon-right dark-bg energized" ui-sref="katalog" menu-close="">
+            <i class="icon ion-ios-book-outline"></i>
+            <span class="text-uppercase">
+               KATALOG
+             </span>
+          </div>
+
+          <div class="line-divider"></div>
+          <!--Level 1-->
+          <h4 style="text-align: center" class="energized">KATEGORİLER</h4>
+          <div ng-repeat="category in categories" class="dark-bg">
+            <div class="item item-icon-right dark-bg energized" ng-click="toggleCat(category)" ng-class="isActive(category)">
+              <span class="text-uppercase energized">
+                {{ category.name }}
+              </span>
+              <i ng-if="category.children.length!=null" class="icon ion-ios-arrow-down"></i>
+            </div>
+
+            <!--Level 2-->
+            <div ng-repeat="subCategory in category.children">
+              <div class="item-sub dark-bg energized" ng-show="isCatShown(category)" ng-class="isActive(subCategory)" ng-click="checkLink(subCategory)" menu-close="" style="color: #ffc900;background-color:#444">
+                {{ subCategory.name }}
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="line-divider"></div>
+            <div class="item item-icon-left dark-bg energized" ui-sref="adminhome" menu-close="" ng-if="isAdmin()">
+              <i class="icon ion-settings"></i>
+              <span class="text-uppercase energized">YÖNETİCİ PANELİ</span>
+            </div>
+
+            <div class="item item-icon-left dark-bg energized" ui-sref="account" menu-close="">
+              <i class="icon ion-person"></i>
+              <span class="text-uppercase energized">HESAP</span>
+            </div>
+
+            <div class="line-divider"></div>
+            <div class="item item-icon-left dark-bg energized" ui-sref="login" menu-close="" ng-click="Destroy()">
+              <i class="icon ion-log-out"></i>
+              <span class="text-uppercase energized">Çıkış Yap</span>
+            </div>
+        </div>
+
+
+      </div></ion-content>
+
+    </ion-side-menu>
+
+  </ion-side-menus>
+
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<ion-view view-title="Login" hide-nav-bar="true">
+  <ion-content class="stable-bg">
+    <!-- Logo -->
+    <div class="padding text-center">
+      <h1>
+        <img  src="vivaImages/viva_logo.png" >
+        
+      </h1>
+      <h4 class="dark">VİVA ÇANTA</h5>
+      <br>
+    </div>
+
+    <br><br>
+    <!-- Login form -->
+    <form name="login-form">
+    <div class="list list-inset card">
+      <label class="item item-input">
+        <input type="text" placeholder="Email" ng-model="credentials.username">
+      </label>
+      <label class="item item-input">
+        <input type="password" placeholder="Şifre" ng-model="credentials.password">
+      </label>
+
+    </div>
+
+    <div class="padding">
+      <ion-toggle ng-if="false" toggle-class="toggle-assertive" ng-model="RememberMe.checked"
+                  ng-change="RememberMeChange()">
+        Beni Hatırla
+      </ion-toggle>
+      <button class="button button-block button-dark" ng-click="login()" >
+                <h4 class="energized">Giriş Yap</h4>
+      </button>
+    </div>
+    </form>
+
+    <div class="padding row">
+      <button class="button button-block button-dark" ui-sref="register">
+       <h5 class="light">Kayıt Ol</h5>
+      </button>
+    </div>
+
+  </ion-content>
+</ion-view>

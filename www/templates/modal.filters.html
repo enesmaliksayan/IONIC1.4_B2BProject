@@ -1,0 +1,47 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-assertive">
+    <div class="buttons" ng-click="showFilters()">
+      <button class="button">Tümünü temizle</button>
+    </div>
+    <h1 class="title">Filter</h1>
+    <div class="buttons" ng-click="applyFilter()">
+      <button class="button">Tamam</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="padding">
+
+      <button class="button button-block button-calm item-icon-right">
+        Branch
+        <i class="icon ion-ios-arrow-right icon-small"></i>
+      </button>
+
+      <h4 class="padding-top">
+        <i class="ion-android-color-palette"></i>
+        Colours
+      </h4>
+
+      <!--list colors-->
+      <div class="color-filter">
+        <div class="item-color-option" ng-repeat="color in colors" style="background-color: {{color}}"></div>
+      </div>
+
+      <h4 class="padding-top">
+        <i class="ion-arrow-resize"></i>
+        Size
+      </h4>
+      <!--List sizes-->
+      <div class="size-filter padding-bottom">
+        <div class="item-size-option" ng-repeat="size in sizes">
+          {{ size }}
+        </div>
+      </div>
+
+      <button class="button button-block button-calm item-icon-right">
+        Occasion
+        <i class="icon ion-ios-arrow-right icon-small"></i>
+      </button>
+
+    </div>
+  </ion-content>
+</ion-modal-view>
